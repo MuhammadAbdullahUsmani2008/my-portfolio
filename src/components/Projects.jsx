@@ -1,37 +1,44 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
+import abdulMananLogo from "../assets/abdul-manan-logo.png";
+import mmmLogo from "../assets/mmm-logo.png";
+
 function Projects() {
   const projects = [
     {
       number: "01",
-      title: "My Portfolio",
+      title: "Abdul Manan",
       description:
-        "A personal portfolio website designed to showcase my skills, projects, and journey as a frontend developer. The website features a clean layout, responsive design, and smooth user interactions.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/MuhammadAbdullahUsmani2008",
-      demo: "https://github.com/MuhammadAbdullahUsmani2008",
-      icon: "</>",
+        "A modern humanitarian website concept designed to present a mission, stories, impact and ways to get involved through a clean and engaging web experience.",
+      technologies: ["React", "Vite", "JavaScript", "CSS"],
+      github: "https://github.com/MuhammadAbdullahUsmani2008/Abdul-Manan",
+      demo: "https://abdul-manan.muhamadabdullahusmani.workers.dev/",
+      icon: "AM",
+      logo: abdulMananLogo,
     },
     {
       number: "02",
-      title: "My Portfolio",
+      title: "Muslim Medical Mission",
       description:
-        "A modern personal portfolio project focused on creating an engaging and responsive user experience. Built to practice frontend development concepts, layouts, styling, and interactive JavaScript features.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/MuhammadAbdullahUsmani2008",
-      demo: "https://github.com/MuhammadAbdullahUsmani2008",
-      icon: "{ }",
+        "A modern humanitarian and healthcare website focused on presenting the organization's mission, medical work, campaigns and opportunities to support its work.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      github: "https://github.com/MuhammadAbdullahUsmani2008/MMM02",
+      demo: "https://mmm02-4uk.pages.dev",
+      icon: "MMM",
+      logo: mmmLogo,
     },
     {
       number: "03",
-      title: "Nexcent",
+      title: "Other Projects",
+      badge: "Other Projects",
       description:
-        "A responsive practice website inspired by a modern business landing page. This project helped me strengthen my HTML and CSS skills while working with layouts, navigation, responsive design, and user interface styling.",
-      technologies: ["HTML", "CSS", "JavaScript"],
+        "A growing collection of my other work — personal websites, web applications and ongoing experiments with modern web technologies. Browse everything else on my GitHub profile.",
+      technologies: ["React", "JavaScript", "CSS"],
       github: "https://github.com/MuhammadAbdullahUsmani2008",
-      demo: "https://github.com/MuhammadAbdullahUsmani2008/practice",
-      icon: "N",
+      githubLabel: "View Projects",
+      demo: "",
+      icon: <FaGithub aria-hidden="true" />,
     },
   ];
 
@@ -70,11 +77,22 @@ function Projects() {
             <div className="project-image">
               <div className="project-overlay">
                 <span className="project-number">
-                  PROJECT {project.number}
+                  {project.badge || `PROJECT ${project.number}`}
                 </span>
 
                 <div className="project-symbol">
-                  {project.icon}
+                  {project.logo ? (
+                    <img
+                      src={project.logo}
+                      alt=""
+                      className="project-logo"
+                      width="60"
+                      height="60"
+                      loading="lazy"
+                    />
+                  ) : (
+                    project.icon
+                  )}
                 </div>
               </div>
             </div>
@@ -91,25 +109,29 @@ function Projects() {
               </div>
 
               <div className="project-links">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${project.title} code`}
-                >
-                  <FaGithub />
-                  <span>Code</span>
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.title} code`}
+                  >
+                    <FaGithub />
+                    <span>{project.githubLabel || "Code"}</span>
+                  </a>
+                )}
 
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${project.title} project`}
-                >
-                  <FaExternalLinkAlt />
-                  <span>View Project</span>
-                </a>
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.title} project`}
+                  >
+                    <FaExternalLinkAlt />
+                    <span>View Project</span>
+                  </a>
+                )}
               </div>
             </div>
           </motion.article>

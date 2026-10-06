@@ -6,17 +6,17 @@ function About() {
     {
       icon: <FaCode />,
       title: "Clean Code",
-      text: "I enjoy writing structured, clean and understandable code.",
+      text: "Structured, maintainable and readable code.",
     },
     {
       icon: <FaLaptopCode />,
       title: "Responsive Design",
-      text: "I create websites that work smoothly on desktop, tablet and mobile.",
+      text: "Interfaces designed to work smoothly across screen sizes.",
     },
     {
       icon: <FaRocket />,
       title: "Always Learning",
-      text: "I am continuously improving my development skills and exploring new technologies.",
+      text: "Continuously improving my development skills and exploring modern technologies.",
     },
   ];
 
@@ -41,18 +41,20 @@ function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h3>Frontend Developer in the Making 🚀</h3>
+          <h3>Full Stack Developer 🚀</h3>
 
           <p>
-            Hello! I'm Muhammad Abdullah Usmani, a passionate beginner
-            frontend developer who enjoys turning ideas into modern and
-            interactive websites.
+            Hello! I'm Muhammad Abdullah Usmani, a full stack developer
+            focused on building modern, responsive and user-friendly web
+            experiences. I work across frontend technologies such as
+            HTML, CSS, JavaScript and React, while also developing
+            backend applications with Python, FastAPI and MongoDB.
           </p>
 
           <p>
-            I have been learning web development with HTML, CSS,
-            JavaScript and now React. My goal is to continuously improve
-            my skills and build useful digital experiences.
+            I enjoy turning ideas and designs into clean, functional
+            products — from polished, responsive interfaces to the
+            backend services that power them.
           </p>
 
           <a href="#contact" className="primary-btn">

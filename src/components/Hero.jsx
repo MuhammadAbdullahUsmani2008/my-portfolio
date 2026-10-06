@@ -40,7 +40,7 @@ function Hero() {
             animate={{ opacity: 0.7, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Frontend Developer
+            Full Stack Developer
           </motion.h2>
 
           <motion.p
@@ -49,8 +49,9 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I build modern, responsive and interactive websites using
-            HTML, CSS, JavaScript and React.
+            I build modern, responsive and user-focused web experiences
+            across frontend and backend with React, JavaScript, Python
+            and FastAPI.
           </motion.p>
 
           <motion.div
@@ -74,11 +75,21 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <a href="#" aria-label="GitHub">
+            <a
+              href="https://github.com/MuhammadAbdullahUsmani2008"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile"
+            >
               <FaGithub />
             </a>
 
-            <a href="#" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/muhammad-abdullah-a31b16331/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn profile"
+            >
               <FaLinkedin />
             </a>
           </motion.div>

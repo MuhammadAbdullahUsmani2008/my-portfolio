@@ -64,11 +64,12 @@ function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3>Have a project in mind?</h3>
+          <h3>Tell me about your project</h3>
 
           <p>
-            I'm always interested in learning, collaborating, and working
-            on exciting projects. Feel free to reach out!
+            Have a project, website idea, or collaboration in mind? I'd
+            be happy to discuss it — feel free to send a message and I'll
+            get back to you.
           </p>
 
           <div className="contact-item">
@@ -94,6 +95,8 @@ function Contact() {
 
             <a
               href="https://www.linkedin.com/in/muhammad-abdullah-a31b16331/"
+              target="_blank"
+              rel="noreferrer"
               aria-label="LinkedIn"
             >
               <FaLinkedin />

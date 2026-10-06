@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
+import logo from "../assets/logo.png";
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -58,6 +60,7 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <a href="#home" className="logo" onClick={closeMenu}>
+        <img src={logo} alt="" className="logo-img" width="40" height="40" />
         Usmani<span>.</span>
       </a>
 

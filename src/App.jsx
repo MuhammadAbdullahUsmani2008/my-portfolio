@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MotionConfig } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -30,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <div
         className="mouse-glow"
         style={{
@@ -50,7 +51,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </MotionConfig>
   );
 }
 
