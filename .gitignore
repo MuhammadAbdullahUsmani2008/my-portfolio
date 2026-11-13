@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local-only files
+.claude
+screencapture-*.pdf
+public/resume.pdf

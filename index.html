@@ -2,40 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Muhammad Abdullah Usmani | Full Stack Developer — React & JavaScript</title>
+    <meta name="theme-color" content="#060912" />
     <meta
       name="description"
-      content="Portfolio of Muhammad Abdullah Usmani, a full stack developer building modern, responsive and user-focused web experiences with React, JavaScript, Python and FastAPI."
+      content="Muhammad Abdullah Usmani - Full Stack Developer building modern, responsive web applications with React, Next.js, FastAPI and MongoDB."
     />
-    <meta
-      name="keywords"
-      content="Muhammad Abdullah Usmani, Full Stack Developer, React, JavaScript, Python, FastAPI, Web Development, Responsive Websites"
-    />
-    <meta name="author" content="Muhammad Abdullah Usmani" />
-    <meta name="theme-color" content="#0b1120" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Muhammad Abdullah Usmani" />
-    <meta
-      property="og:title"
-      content="Muhammad Abdullah Usmani | Full Stack Developer"
-    />
+    <meta property="og:title" content="Muhammad Abdullah Usmani - Full Stack Developer" />
     <meta
       property="og:description"
-      content="I build modern, responsive and user-focused web experiences across frontend and backend with React, JavaScript, Python and FastAPI."
+      content="React and Next.js on the front, Python, FastAPI and MongoDB on the back. Designed, built and deployed end to end."
     />
-    <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Muhammad Abdullah Usmani | Full Stack Developer"
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
     />
-    <meta
-      name="twitter:description"
-      content="I build modern, responsive and user-focused web experiences across frontend and backend with React, JavaScript, Python and FastAPI."
-    />
+    <script>
+      // Apply the saved theme before first paint so there is no flash
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("theme") === "light" ? "light" : "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <title>Muhammad Abdullah Usmani - Full Stack Developer</title>
   </head>
   <body>
     <div id="root"></div>

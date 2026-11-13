@@ -1,174 +1,95 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { personalInfo } from "../data/portfolioData";
+import { GithubIcon, LinkedinIcon, Magnetic, Reveal, WordReveal } from "./ui";
 
-import {
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaPaperPlane,
-} from "react-icons/fa";
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
 
-function Contact() {
-  const [status, setStatus] = useState("");
-  const [isSending, setIsSending] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    setIsSending(true);
-    setStatus("");
-
-    const form = e.target;
-
+  const copy = async () => {
     try {
-      await emailjs.sendForm(
-        "service_v5mdn3j",
-        "template_3opwzke",
-        form,
-        "4NLfAgJmp2woyaxB-"
-      );
-
-      setStatus("success");
-      form.reset();
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      setStatus("error");
-    } finally {
-      setIsSending(false);
+      await navigator.clipboard.writeText(personalInfo.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${personalInfo.email}`;
     }
   };
 
   return (
-    <section className="section contact" id="contact">
-      <motion.div
-        className="section-heading"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <p>GET IN TOUCH</p>
-
-        <h2>
-          Let's <span>Connect</span>
+    <section id="contact" className="relative overflow-hidden border-t border-line">
+      <div
+        className="pointer-events-none absolute -bottom-60 left-1/2 h-[480px] w-[900px] -translate-x-1/2 animate-drift rounded-full bg-accent-deep/20 blur-[140px]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-36">
+        <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          <span className="text-dim">04 /</span> Contact
+        </Reveal>
+        <h2 className="mt-5 font-display text-[clamp(2.5rem,8vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.03em]">
+          <WordReveal text="Have a project" inView />
+          <br />
+          <WordReveal text="in mind?" inView delay={0.15} />{" "}
+          <WordReveal text="Let's build it." inView delay={0.3} wordClassName="text-gradient" />
         </h2>
-      </motion.div>
-
-      <div className="contact-container">
-        {/* CONTACT INFORMATION */}
-        <motion.div
-          className="contact-info"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3>Tell me about your project</h3>
-
-          <p>
-            Have a project, website idea, or collaboration in mind? I'd
-            be happy to discuss it — feel free to send a message and I'll
+        <Reveal delay={0.2}>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted">
+            I&apos;m open to freelance projects, collaborations and full-time roles. Send me a message and I&apos;ll
             get back to you.
           </p>
+        </Reveal>
 
-          <div className="contact-item">
-            <div className="contact-icon">
-              <FaEnvelope />
-            </div>
-
-            <div>
-              <h4>Email</h4>
-              <p>muhamadabdullahusmani@gmail.com</p>
-            </div>
-          </div>
-
-          <div className="contact-socials">
+        <Reveal delay={0.1} className="mt-10 flex flex-wrap items-center gap-3">
+          <Magnetic>
             <a
-              href="https://github.com/MuhammadAbdullahUsmani2008"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
+              href={`mailto:${personalInfo.email}`}
+              className="group inline-flex max-w-full items-center gap-2.5 rounded-full bg-accent px-6 py-4 font-medium text-ink shadow-lg shadow-accent/20 transition-shadow hover:shadow-accent/40"
             >
-              <FaGithub />
+              <span className="truncate">{personalInfo.email}</span>
+              <ArrowUpRight size={18} className="shrink-0 transition-transform group-hover:rotate-45" />
             </a>
-
-            <a
-              href="https://www.linkedin.com/in/muhammad-abdullah-a31b16331/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin />
-            </a>
-          </div>
-        </motion.div>
-
-        {/* CONTACT FORM */}
-        <motion.form
-          className="contact-form"
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="form-group">
-            <input
-              type="text"
-              name="from_name"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              type="email"
-              name="from_email"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <textarea
-              name="message"
-              rows="6"
-              placeholder="Your Message"
-              required
-            />
-          </div>
-
+          </Magnetic>
           <button
-            type="submit"
-            className="primary-btn"
-            disabled={isSending}
+            type="button"
+            onClick={copy}
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-5 py-4 font-medium transition-colors hover:border-accent hover:text-accent"
           >
-            {isSending ? (
-              "Sending..."
-            ) : (
-              <>
-                Send Message <FaPaperPlane />
-              </>
-            )}
+            {copied ? <Check size={17} /> : <Copy size={17} />}
+            {copied ? "Copied" : "Copy email"}
           </button>
+        </Reveal>
 
-          {status === "success" && (
-            <p className="form-message success-message">
-              🎉 Message sent successfully! I'll get back to you soon.
-            </p>
-          )}
-
-          {status === "error" && (
-            <p className="form-message error-message">
-              ❌ Something went wrong. Please try again.
-            </p>
-          )}
-        </motion.form>
+        <Reveal delay={0.15} className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-muted">
+          <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+          >
+            <GithubIcon /> GitHub
+          </a>
+          <a
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+          >
+            <LinkedinIcon /> LinkedIn
+          </a>
+        </Reveal>
       </div>
+
+      <footer className="relative border-t border-line">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-7 font-mono text-xs text-dim sm:flex-row sm:items-center md:px-8">
+          <p>
+            © {new Date().getFullYear()} {personalInfo.name}
+          </p>
+          <p>Built with React, Tailwind CSS &amp; Framer Motion</p>
+          <a href="#top" className="transition-colors hover:text-accent">
+            Back to top ↑
+          </a>
+        </div>
+      </footer>
     </section>
   );
 }
-
-export default Contact;

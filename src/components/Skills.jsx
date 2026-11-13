@@ -1,118 +1,55 @@
 import { motion } from "framer-motion";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaPython,
-  FaDatabase,
-  FaGitAlt,
-  FaGithub,
-} from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiFastapi,
-  SiMongodb,
-  SiCloudflare,
-  SiVercel,
-  SiNetlify,
-} from "react-icons/si";
+import { skillGroups } from "../data/portfolioData";
+import { Reveal, SectionHeading } from "./ui";
 
-function Skills() {
-  const skillGroups = [
-    {
-      label: "FRONTEND",
-      skills: [
-        { name: "HTML", icon: <FaHtml5 />, level: "88%" },
-        { name: "CSS", icon: <FaCss3Alt />, level: "82%" },
-        { name: "JavaScript", icon: <FaJs />, level: "75%" },
-        { name: "React", icon: <FaReact />, level: "70%" },
-        { name: "Next.js", icon: <SiNextdotjs />, level: "55%" },
-      ],
-    },
-    {
-      label: "BACKEND",
-      skills: [
-        { name: "Python", icon: <FaPython />, level: "70%" },
-        { name: "FastAPI", icon: <SiFastapi />, level: "60%" },
-        { name: "MongoDB", icon: <SiMongodb />, level: "60%" },
-        { name: "PyMongo", icon: <FaDatabase />, level: "55%" },
-      ],
-    },
-    {
-      label: "TOOLS & DEPLOYMENT",
-      skills: [
-        { name: "Git", icon: <FaGitAlt />, level: "75%" },
-        { name: "GitHub", icon: <FaGithub />, level: "75%" },
-        { name: "Cloudflare", icon: <SiCloudflare />, level: "65%" },
-        { name: "Vercel", icon: <SiVercel />, level: "65%" },
-        { name: "Netlify", icon: <SiNetlify />, level: "70%" },
-      ],
-    },
-  ];
+const list = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.05, delayChildren: 0.15 } },
+};
+const chip = {
+  hidden: { opacity: 0, y: 14, scale: 0.9 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
+};
 
+export default function Skills() {
   return (
-    <section className="section skills" id="skills">
-      <motion.div
-        className="section-heading"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <p>MY TECHNICAL LEVEL</p>
-        <h2>My <span>Skills</span></h2>
-      </motion.div>
+    <section id="skills" className="border-y border-line bg-panel/40">
+      <div className="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
+        <SectionHeading index="02" label="Skills" title="The stack I work across." />
 
-      <div className="skills-groups">
-        {skillGroups.map((group) => (
-          <div className="skill-group" key={group.label}>
-            <h3 className="skill-group-label">{group.label}</h3>
-
-            <div className="skills-container">
-              {group.skills.map((skill, index) => (
-                <motion.div
-                  className="skill-card"
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
-                  whileHover={{ y: -8 }}
-                >
-                  <div className="skill-top">
-                    <div className="skill-icon">
-                      {skill.icon}
-                    </div>
-
-                    <h4>{skill.name}</h4>
-                  </div>
-
-                  <div className="progress-bar">
-                    <motion.div
-                      className="progress"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: skill.level }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 1,
-                        delay: 0.2,
-                      }}
-                    />
-                  </div>
-
-                  <span>{skill.level}</span>
-                </motion.div>
-              ))}
+        <div className="border-t border-line">
+          {skillGroups.map((g, i) => (
+            <div
+              key={g.id}
+              className="grid gap-5 border-b border-line py-8 md:grid-cols-[1fr_2fr] md:gap-10 md:py-10"
+            >
+              <Reveal delay={i * 0.05}>
+                <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">{g.title}</h3>
+                <p className="mt-2 max-w-xs text-[15px] leading-relaxed text-muted">{g.blurb}</p>
+              </Reveal>
+              <motion.ul
+                variants={list}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-60px" }}
+                className="flex flex-wrap content-start gap-2.5"
+              >
+                {g.skills.map((s) => (
+                  <motion.li
+                    key={s}
+                    variants={chip}
+                    whileHover={{ y: -5, scale: 1.06 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="cursor-default rounded-full border border-line bg-raised px-4 py-2 text-sm transition-colors hover:border-accent hover:text-accent hover:shadow-lg hover:shadow-accent/10"
+                  >
+                    {s}
+                  </motion.li>
+                ))}
+              </motion.ul>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-export default Skills;
