@@ -133,6 +133,7 @@ export default function Hero() {
                   alt={`Portrait of ${personalInfo.name}`}
                   width="1023"
                   height="1536"
+                  fetchPriority="high"
                   className="aspect-[4/5] w-full object-cover object-top"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#060912] via-[#060912]/70 to-transparent p-5 pt-16 text-white">

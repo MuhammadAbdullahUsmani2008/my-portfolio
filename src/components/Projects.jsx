@@ -42,8 +42,8 @@ function ProjectCard({ project, index }) {
               <motion.img
                 src={project.image}
                 alt={`Screenshot of the ${project.title} website`}
-                width="1440"
-                height="900"
+                width="1200"
+                height="750"
                 loading="lazy"
                 style={{ y }}
                 className="aspect-[16/10] w-full scale-[1.12] object-cover object-top transition-[scale] duration-700 group-hover:scale-[1.18]"

@@ -100,7 +100,7 @@ export const projects = [
     description:
       "The official website of a volunteer network of doctors, paramedics and students - covering free medical camps, disaster response, training programmes and ways to donate or volunteer.",
     tech: ["WordPress", "JavaScript", "CSS", "Responsive Design"],
-    image: "/projects/mmm.png",
+    image: "/projects/mmm.webp",
     live: "https://mmm.org.pk",
     host: "mmm.org.pk",
   },
@@ -111,7 +111,7 @@ export const projects = [
     description:
       "An online store for original handsfree, earbuds, chargers and accessories in Pakistan, with product categories, search, cart and checkout priced in PKR.",
     tech: ["WordPress", "WooCommerce", "Elementor"],
-    image: "/projects/gionee.png",
+    image: "/projects/gionee.webp",
     live: "https://gionee.pk",
     host: "gionee.pk",
   },
@@ -122,7 +122,7 @@ export const projects = [
     description:
       "A brand and ordering site for premium dry fruits mixed with honey - products, bundles, customer reviews and a cart, delivered across Pakistan.",
     tech: ["Next.js", "React", "JavaScript", "CSS"],
-    image: "/projects/hafiznuts.png",
+    image: "/projects/hafiznuts.webp",
     live: "https://hafiznuts.com",
     host: "hafiznuts.com",
   },
